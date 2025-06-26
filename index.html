@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Épico: A Jornada dos Videogames</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom colors for Tailwind */
+        :root {
+            --color-primary-dark: #1a202c; /* Dark Blue/Gray */
+            --color-secondary-accent: #4299e1; /* Light Blue */
+            --color-tertiary-highlight: #81e6d9; /* Teal */
+            --color-text-light: #edf2f7; /* Off-White */
+            --color-text-dark: #2d3748; /* Dark Gray */
+        }
+
+        /* Custom Tailwind configuration */
+        html {
+            font-family: "Inter", sans-serif;
+        }
+
+        /* Override default Tailwind colors with custom ones */
+        .bg-primary-dark { background-color: var(--color-primary-dark); }
+        .text-primary-dark { color: var(--color-primary-dark); }
+        .bg-secondary-accent { background-color: var(--color-secondary-accent); }
+        .text-secondary-accent { color: var(--color-secondary-accent); }
+        .bg-tertiary-highlight { background-color: var(--color-tertiary-highlight); }
+        .text-tertiary-highlight { color: var(--color-tertiary-highlight); }
+        .text-text-light { color: var(--color-text-light); }
+        .text-text-dark { color: var(--color-text-dark); }
+        .border-secondary-accent { border-color: var(--color-secondary-accent); }
+
+        /* General link styling */
+        a {
+            color: var(--color-secondary-accent);
+            text-decoration: none;
+        }
+        a:hover {
+            color: var(--color-tertiary-highlight);
+            text-decoration: underline;
+        }
+
+        /* Hide content pages by default */
+        .content-page {
+            display: none;
+        }
+
+        /* Show active content page */
+        .content-page.active {
+            display: block;
+        }
+
+        /* Dropdown menu specific styles */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-primary-dark text-text-light min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-primary-dark shadow-lg py-4 px-6 md:px-8 lg:px-12 rounded-b-lg">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <!-- Logo and Site Name -->
+            <div class="flex items-center mb-4 md:mb-0">
+                <img src="https://placehold.co/60x60/4299e1/ffffff?text=LOGO" alt="Pixel Épico Logo" class="h-12 w-12 rounded-full mr-3 border-2 border-tertiary-highlight">
+                <h1 class="text-3xl font-extrabold text-text-light tracking-wide">Pixel Épico</h1>
+            </div>
+
+            <!-- Navigation and Social Icons -->
+            <nav class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                <!-- Dropdown Menu for Categories -->
+                <div class="relative dropdown">
+                    <button class="bg-secondary-accent text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-tertiary-highlight transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-tertiary-highlight focus:ring-opacity-75">
+                        Categorias <i class="fas fa-chevron-down ml-2"></i>
+                    </button>
+                    <div class="dropdown-menu absolute hidden bg-primary-dark text-text-light mt-2 rounded-lg shadow-xl z-50 w-64 md:w-auto min-w-[200px] border border-secondary-accent">
+                        <!-- Categories and their pages -->
+                        <div class="py-2">
+                            <!-- Category 1 -->
+                            <div class="group relative px-4 py-2 hover:bg-secondary-accent transition duration-200 rounded-lg">
+                                <span class="cursor-pointer font-medium">Primórdios dos Videogames <i class="fas fa-caret-right ml-2"></i></span>
+                                <div class="absolute left-full top-0 ml-1 hidden group-hover:block bg-primary-dark text-text-light rounded-lg shadow-xl border border-secondary-accent py-2 min-w-[250px] z-50">
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page1-1">Spacewar! e o Início</a>
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page1-2">PONG: O Marco Inicial</a>
+                                </div>
+                            </div>
+                            <!-- Category 2 -->
+                            <div class="group relative px-4 py-2 hover:bg-secondary-accent transition duration-200 rounded-lg">
+                                <span class="cursor-pointer font-medium">A Era Arcade <i class="fas fa-caret-right ml-2"></i></span>
+                                <div class="absolute left-full top-0 ml-1 hidden group-hover:block bg-primary-dark text-text-light rounded-lg shadow-xl border border-secondary-accent py-2 min-w-[250px] z-50">
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page2-1">Space Invaders: O Fenômeno</a>
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page2-2">Pac-Man: O Ícone Cultural</a>
+                                </div>
+                            </div>
+                            <!-- Category 3 -->
+                            <div class="group relative px-4 py-2 hover:bg-secondary-accent transition duration-200 rounded-lg">
+                                <span class="cursor-pointer font-medium">Consoles Clássicos <i class="fas fa-caret-right ml-2"></i></span>
+                                <div class="absolute left-full top-0 ml-1 hidden group-hover:block bg-primary-dark text-text-light rounded-lg shadow-xl border border-secondary-accent py-2 min-w-[250px] z-50">
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page3-1">Atari 2600: Dominando os Lares</a>
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page3-2">Nintendo Entertainment System (NES): O Renascimento</a>
+                                </div>
+                            </div>
+                            <!-- Category 4 -->
+                            <div class="group relative px-4 py-2 hover:bg-secondary-accent transition duration-200 rounded-lg">
+                                <span class="cursor-pointer font-medium">A Revolução 3D <i class="fas fa-caret-right ml-2"></i></span>
+                                <div class="absolute left-full top-0 ml-1 hidden group-hover:block bg-primary-dark text-text-light rounded-lg shadow-xl border border-secondary-accent py-2 min-w-[250px] z-50">
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page4-1">Super Mario 64: Mudando Perspectivas</a>
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page4-2">PlayStation e a Ascensão do 3D</a>
+                                </div>
+                            </div>
+                            <!-- Category 5 -->
+                            <div class="group relative px-4 py-2 hover:bg-secondary-accent transition duration-200 rounded-lg">
+                                <span class="cursor-pointer font-medium">Era da Internet e Multiplayer Online <i class="fas fa-caret-right ml-2"></i></span>
+                                <div class="absolute left-full top-0 ml-1 hidden group-hover:block bg-primary-dark text-text-light rounded-lg shadow-xl border border-secondary-accent py-2 min-w-[250px] z-50">
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page5-1">MMORPGs e Mundos Persistentes</a>
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page5-2">E-sports: De Nicho a Fenômeno Global</a>
+                                </div>
+                            </div>
+                            <!-- Category 6 -->
+                            <div class="group relative px-4 py-2 hover:bg-secondary-accent transition duration-200 rounded-lg">
+                                <span class="cursor-pointer font-medium">Consoles Modernos <i class="fas fa-caret-right ml-2"></i></span>
+                                <div class="absolute left-full top-0 ml-1 hidden group-hover:block bg-primary-dark text-text-light rounded-lg shadow-xl border border-secondary-accent py-2 min-w-[250px] z-50">
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page6-1">PlayStation 5: A Nova Geração</a>
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page6-2">Xbox Series X/S: O Poder Bruto</a>
+                                </div>
+                            </div>
+                            <!-- Category 7 -->
+                            <div class="group relative px-4 py-2 hover:bg-secondary-accent transition duration-200 rounded-lg">
+                                <span class="cursor-pointer font-medium">Jogos Independentes <i class="fas fa-caret-right ml-2"></i></span>
+                                <div class="absolute left-full top-0 ml-1 hidden group-hover:block bg-primary-dark text-text-light rounded-lg shadow-xl border border-secondary-accent py-2 min-w-[250px] z-50">
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page7-1">Minecraft: A Liberdade Criativa</a>
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page7-2">Stardew Valley: O Charme Indie</a>
+                                </div>
+                            </div>
+                            <!-- Category 8 -->
+                            <div class="group relative px-4 py-2 hover:bg-secondary-accent transition duration-200 rounded-lg">
+                                <span class="cursor-pointer font-medium">Realidade Virtual e Aumentada <i class="fas fa-caret-right ml-2"></i></span>
+                                <div class="absolute left-full top-0 ml-1 hidden group-hover:block bg-primary-dark text-text-light rounded-lg shadow-xl border border-secondary-accent py-2 min-w-[250px] z-50">
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page8-1">Oculus Rift e a Imersão</a>
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page8-2">Pokémon GO e a AR no Mundo Real</a>
+                                </div>
+                            </div>
+                            <!-- Category 9 -->
+                            <div class="group relative px-4 py-2 hover:bg-secondary-accent transition duration-200 rounded-lg">
+                                <span class="cursor-pointer font-medium">O Futuro dos Jogos <i class="fas fa-caret-right ml-2"></i></span>
+                                <div class="absolute left-full top-0 ml-1 hidden group-hover:block bg-primary-dark text-text-light rounded-lg shadow-xl border border-secondary-accent py-2 min-w-[250px] z-50">
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page9-1">Cloud Gaming: Jogos Sem Fronteiras</a>
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page9-2">IA nos Jogos: Novos Horizontes</a>
+                                </div>
+                            </div>
+                            <!-- Category 10 -->
+                            <div class="group relative px-4 py-2 hover:bg-secondary-accent transition duration-200 rounded-lg">
+                                <span class="cursor-pointer font-medium">Títulos Mais Aguardados <i class="fas fa-caret-right ml-2"></i></span>
+                                <div class="absolute left-full top-0 ml-1 hidden group-hover:block bg-primary-dark text-text-light rounded-lg shadow-xl border border-secondary-accent py-2 min-w-[250px] z-50">
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page10-1">The Elder Scrolls VI: O Que Esperar</a>
+                                    <a href="#" class="block px-4 py-2 hover:bg-tertiary-highlight rounded-lg page-link" data-page="page10-2">Grand Theft Auto VI: Vazamentos e Expectativas</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Icons -->
+                <div class="flex space-x-4">
+                    <a href="#" class="text-text-light hover:text-tertiary-highlight text-2xl transition duration-300 ease-in-out"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-text-light hover:text-tertiary-highlight text-2xl transition duration-300 ease-in-out"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-text-light hover:text-tertiary-highlight text-2xl transition duration-300 ease-in-out"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-text-light hover:text-tertiary-highlight text-2xl transition duration-300 ease-in-out"><i class="fab fa-youtube"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto mt-8 p-6 flex-grow rounded-lg shadow-xl bg-gray-800 border border-secondary-accent">
+        <!-- Home Page / Default Content -->
+        <section id="home-page" class="content-page active text-center">
+            <h2 class="text-4xl font-bold text-secondary-accent mb-4">Bem-vindo ao Pixel Épico!</h2>
+            <p class="text-lg text-text-light leading-relaxed">Sua fonte definitiva sobre a história, presente e futuro dos videogames. Navegue pelas categorias no menu acima para explorar a fascinante evolução dos jogos digitais, desde os primórdios até os títulos mais aguardados!</p>
+            <div class="mt-8 flex justify-center">
+                <img src="https://placehold.co/600x300/2d3748/edf2f7?text=Hist%C3%B3ria+dos+Games" alt="História dos Games" class="rounded-lg shadow-md max-w-full h-auto">
+            </div>
+        </section>
+
+        <!-- Content Pages (Hidden by default) -->
+
+        <!-- Primórdios dos Videogames -->
+        <section id="page1-1" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">Spacewar! e o Início</h2>
+            <p class="text-text-light leading-relaxed">Criado em 1962 por Steve Russell e sua equipe no MIT, Spacewar! é frequentemente considerado um dos primeiros jogos eletrônicos interativos. Desenvolvido para o computador PDP-1, ele simulava um combate entre duas naves espaciais em torno de uma estrela que atraía ambas. O jogo demonstrou o potencial do computador como uma ferramenta de entretenimento e abriu caminho para futuras inovações.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=Spacewar!" alt="Spacewar! Screenshot" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+        <section id="page1-2" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">PONG: O Marco Inicial</h2>
+            <p class="text-text-light leading-relaxed">Lançado pela Atari em 1972, PONG foi o primeiro jogo de sucesso comercial massivo. Sua simplicidade — uma simulação de tênis de mesa com duas paletas e uma bola — o tornou acessível e instantaneamente viciante. PONG não apenas estabeleceu a Atari como uma força na indústria, mas também provou que os videogames poderiam ser um negócio lucrativo, dando início à era dos fliperamas.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=PONG" alt="PONG Screenshot" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+
+        <!-- A Era Arcade -->
+        <section id="page2-1" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">Space Invaders: O Fenômeno</h2>
+            <p class="text-text-light leading-relaxed">Space Invaders, lançado no Japão em 1978, revolucionou a indústria arcade. Seu conceito de abater hordas de alienígenas em queda livre com um canhão laser capturou a imaginação de milhões. O jogo foi tão popular que, em seu auge, supostamente causou escassez de moedas no Japão devido à demanda. Ele estabeleceu o gênero "shoot 'em up" e influenciou inúmeros títulos posteriores.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=Space+Invaders" alt="Space Invaders Screenshot" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+        <section id="page2-2" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">Pac-Man: O Ícone Cultural</h2>
+            <p class="text-text-light leading-relaxed">Lançado pela Namco em 1980, Pac-Man transcendeu os videogames para se tornar um ícone cultural global. Seu design colorido, jogabilidade viciante de labirinto e personagem carismático o tornaram um sucesso instantâneo. Pac-Man não apenas gerou uma infinidade de produtos licenciados, mas também provou que os videogames poderiam atrair um público mais amplo, incluindo mulheres.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=Pac-Man" alt="Pac-Man Screenshot" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+
+        <!-- Consoles Clássicos -->
+        <section id="page3-1" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">Atari 2600: Dominando os Lares</h2>
+            <p class="text-text-light leading-relaxed">O Atari 2600 (originalmente Video Computer System), lançado em 1977, foi fundamental para levar os videogames para dentro dos lares. Com seus cartuchos trocáveis, ofereceu uma variedade de jogos sem precedentes para a época. Apesar da crise dos videogames de 1983, o Atari 2600 é lembrado como um pioneiro, pavimentando o caminho para o mercado de consoles domésticos.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=Atari+2600" alt="Atari 2600 Console" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+        <section id="page3-2" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">Nintendo Entertainment System (NES): O Renascimento</h2>
+            <p class="text-text-light leading-relaxed">Após a crise de 1983, o NES (conhecido como Famicom no Japão), lançado em 1985 na América do Norte, revitalizou a indústria de videogames. Com jogos como Super Mario Bros., The Legend of Zelda e Metroid, o NES estabeleceu novos padrões de qualidade e complexidade, redefinindo o que um console doméstico poderia ser e solidificando a posição da Nintendo como líder.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=NES" alt="NES Console" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+
+        <!-- A Revolução 3D -->
+        <section id="page4-1" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">Super Mario 64: Mudando Perspectivas</h2>
+            <p class="text-text-light leading-relaxed">Lançado em 1996 para o Nintendo 64, Super Mario 64 é amplamente creditado por redefinir o gênero de plataforma e estabelecer o modelo para jogos 3D. Sua câmera livre, vastos ambientes exploráveis e design de fases inovador mostraram o verdadeiro potencial da computação gráfica tridimensional nos videogames, influenciando gerações de desenvolvedores.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=Super+Mario+64" alt="Super Mario 64 Screenshot" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+        <section id="page4-2" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">PlayStation e a Ascensão do 3D</h2>
+            <p class="text-text-light leading-relaxed">O PlayStation, lançado pela Sony em 1994, foi um divisor de águas. Focado em jogos 3D com gráficos revolucionários para a época e uma estratégia agressiva com desenvolvedores terceiros, ele se tornou um sucesso massivo, destronando a hegemonia da Nintendo e Sega. Títulos como Final Fantasy VII e Resident Evil consolidaram o console como um ícone da era 3D.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=PlayStation" alt="PlayStation Console" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+
+        <!-- Era da Internet e Multiplayer Online -->
+        <section id="page5-1" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">MMORPGs e Mundos Persistentes</h2>
+            <p class="text-text-light leading-relaxed">Com a popularização da internet, os Massively Multiplayer Online Role-Playing Games (MMORPGs) emergiram como um fenômeno. Jogos como Ultima Online (1997) e EverQuest (1999), e mais tarde World of Warcraft (2004), permitiram que milhões de jogadores interagissem em mundos virtuais persistentes, criando comunidades e uma nova forma de entretenimento social.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=MMORPG" alt="MMORPG Screenshot" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+        <section id="page5-2" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">E-sports: De Nicho a Fenômeno Global</h2>
+            <p class="text-text-light leading-relaxed">A competição em videogames, ou e-sports, cresceu de comunidades de nicho para um fenômeno global com audiências massivas e prêmios milionários. Títulos como StarCraft, Counter-Strike e League of Legends impulsionaram essa ascensão, transformando jogadores profissionais em celebridades e a transmissão de jogos em uma indústria bilionária.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=E-sports" alt="E-sports Event" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+
+        <!-- Consoles Modernos -->
+        <section id="page6-1" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">PlayStation 5: A Nova Geração</h2>
+            <p class="text-text-light leading-relaxed">Lançado em 2020, o PlayStation 5 da Sony oferece gráficos de ponta, tempos de carregamento ultrarrápidos graças ao seu SSD personalizado e um controle inovador (DualSense) com feedback haptico e gatilhos adaptáveis. Ele continua a tradição da PlayStation de entregar experiências de jogo imersivas e cinematográficas, impulsionando a próxima geração de títulos.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=PS5" alt="PlayStation 5 Console" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+        <section id="page6-2" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">Xbox Series X/S: O Poder Bruto</h2>
+            <p class="text-text-light leading-relaxed">Os consoles Xbox Series X e Series S da Microsoft, também lançados em 2020, representam uma abordagem dupla para a nova geração. O Series X foca em potência e gráficos 4K, enquanto o Series S oferece uma opção mais acessível e totalmente digital. Ambos se beneficiam do Xbox Game Pass, um serviço de assinatura que oferece acesso a uma vasta biblioteca de jogos.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=Xbox+Series+X" alt="Xbox Series X Console" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+
+        <!-- Jogos Independentes -->
+        <section id="page7-1" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">Minecraft: A Liberdade Criativa</h2>
+            <p class="text-text-light leading-relaxed">Lançado em 2011 por Markus "Notch" Persson, Minecraft é um fenômeno global que empodera a criatividade. Com sua estética de blocos e jogabilidade de "sandbox" (caixa de areia), permite aos jogadores construir e explorar mundos infinitos. Sua popularidade massiva demonstra o poder dos jogos independentes e o apelo da liberdade de criação.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=Minecraft" alt="Minecraft Screenshot" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+        <section id="page7-2" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">Stardew Valley: O Charme Indie</h2>
+            <p class="text-text-light leading-relaxed">Desenvolvido quase inteiramente por um único indivíduo, Eric Barone (ConcernedApe), Stardew Valley (2016) é um RPG de simulação de fazenda que capturou corações com sua jogabilidade relaxante, personagens encantadores e vasta quantidade de conteúdo. É um exemplo brilhante de como jogos independentes podem oferecer experiências profundas e significativas que rivalizam com grandes produções.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=Stardew+Valley" alt="Stardew Valley Screenshot" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+
+        <!-- Realidade Virtual e Aumentada -->
+        <section id="page8-1" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">Oculus Rift e a Imersão</h2>
+            <p class="text-text-light leading-relaxed">O Oculus Rift (agora Meta Quest) marcou o renascimento da realidade virtual nos anos 2010. Sua promessa de imersão total nos jogos, transportando os jogadores para dentro de mundos digitais, gerou um novo entusiasmo. Embora ainda em evolução, a RV oferece experiências de jogo únicas e profundamente imersivas que continuam a expandir os limites da interação.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=Oculus+Rift" alt="Oculus Rift Headset" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+        <section id="page8-2" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">Pokémon GO e a AR no Mundo Real</h2>
+            <p class="text-text-light leading-relaxed">Pokémon GO, lançado pela Niantic em 2016, popularizou massivamente a realidade aumentada (AR) nos jogos. Ao integrar criaturas digitais no mundo real através da câmera do smartphone, ele incentivou milhões a explorar suas cidades e interagir de novas maneiras com a tecnologia, mostrando o potencial da AR para experiências de jogo ao ar livre.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=Pokemon+GO" alt="Pokémon GO Screenshot" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+
+        <!-- O Futuro dos Jogos -->
+        <section id="page9-1" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">Cloud Gaming: Jogos Sem Fronteiras</h2>
+            <p class="text-text-light leading-relaxed">Serviços de cloud gaming como Xbox Cloud Gaming, GeForce NOW e PlayStation Plus Premium estão mudando a forma como consumimos jogos. Ao transmitir jogos diretamente de servidores remotos para dispositivos, eles eliminam a necessidade de hardware caro e permitem jogar em qualquer lugar com uma conexão à internet, prometendo um futuro de acesso mais amplo aos jogos.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=Cloud+Gaming" alt="Cloud Gaming Concept" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+        <section id="page9-2" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">IA nos Jogos: Novos Horizontes</h2>
+            <p class="text-text-light leading-relaxed">A inteligência artificial está transformando os videogames de maneiras profundas, desde NPCs mais realistas e comportamentos inimigos adaptativos até a geração procedural de conteúdo e a personalização da experiência do jogador. A IA promete criar mundos de jogo mais dinâmicos, personagens mais críveis e desafios mais inteligentes, elevando a imersão e a rejogabilidade.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=AI+in+Games" alt="AI in Games Concept" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+
+        <!-- Títulos Mais Aguardados -->
+        <section id="page10-1" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">The Elder Scrolls VI: O Que Esperar</h2>
+            <p class="text-text-light leading-relaxed">Anunciado há anos, The Elder Scrolls VI é um dos jogos mais aguardados da Bethesda Game Studios. Embora detalhes sejam escassos, espera-se que ele continue a tradição da série de RPGs de mundo aberto com vastos ambientes de fantasia, liberdade de exploração e narrativas ricas. A expectativa é que o jogo eleve os padrões de fidelidade gráfica e profundidade de jogabilidade.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=Elder+Scrolls+VI" alt="The Elder Scrolls VI Concept" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+        <section id="page10-2" class="content-page p-6 bg-gray-700 rounded-lg shadow-md mb-6">
+            <h2 class="text-3xl font-bold text-tertiary-highlight mb-4">Grand Theft Auto VI: Vazamentos e Expectativas</h2>
+            <p class="text-text-light leading-relaxed">Grand Theft Auto VI, da Rockstar Games, gerou um frenesi de especulações e vazamentos. Com um retorno esperado a Vice City e a introdução de uma protagonista feminina, o jogo promete expandir ainda mais o escopo da série de mundo aberto, com gráficos de próxima geração, uma narrativa complexa e uma atenção incomparável aos detalhes, continuando a quebrar recordes de vendas.</p>
+            <div class="mt-4">
+                <img src="https://placehold.co/400x200/2d3748/edf2f7?text=GTA+VI" alt="Grand Theft Auto VI Concept" class="rounded-lg shadow-sm w-full md:w-3/4 lg:w-1/2 mx-auto">
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark text-text-light py-6 mt-8 rounded-t-lg">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Pixel Épico. Todos os direitos reservados.</p>
+            <div class="flex justify-center space-x-4 mt-3">
+                <a href="#" class="text-text-light hover:text-tertiary-highlight transition duration-300">Sobre Nós</a>
+                <a href="#" class="text-text-light hover:text-tertiary-highlight transition duration-300">Contato</a>
+                <a href="#" class="text-text-light hover:text-tertiary-highlight transition duration-300">Política de Privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript to handle page switching
+        document.addEventListener('DOMContentLoaded', () => {
+            const pageLinks = document.querySelectorAll('.page-link');
+            const contentPages = document.querySelectorAll('.content-page');
+            const homePage = document.getElementById('home-page');
+
+            // Function to show a specific page and hide others
+            function showPage(pageId) {
+                // Hide all content pages
+                contentPages.forEach(page => {
+                    page.classList.remove('active');
+                });
+
+                // Show the requested page
+                const targetPage = document.getElementById(pageId);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                } else {
+                    // Fallback to home page if target not found
+                    homePage.classList.add('active');
+                }
+
+                // Close dropdown after selection on smaller screens
+                const dropdownMenu = document.querySelector('.dropdown-menu');
+                if (dropdownMenu && window.innerWidth < 768) { // Assuming md breakpoint is 768px
+                    dropdownMenu.style.display = 'none';
+                }
+            }
+
+            // Add click event listeners to all page links
+            pageLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+                    const pageId = event.target.dataset.page; // Get the data-page attribute
+                    showPage(pageId);
+                });
+            });
+
+            // Handle dropdown toggle for smaller screens (optional, if you want click instead of hover)
+            const dropdownButton = document.querySelector('.dropdown > button');
+            if (dropdownButton) {
+                dropdownButton.addEventListener('click', () => {
+                    const dropdownMenu = dropdownButton.nextElementSibling;
+                    if (dropdownMenu.style.display === 'block') {
+                        dropdownMenu.style.display = 'none';
+                    } else {
+                        dropdownMenu.style.display = 'block';
+                    }
+                });
+
+                // Close dropdown if clicked outside
+                document.addEventListener('click', (event) => {
+                    if (!dropdownButton.contains(event.target) && !document.querySelector('.dropdown-menu').contains(event.target)) {
+                        document.querySelector('.dropdown-menu').style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
